@@ -1,0 +1,30 @@
+h1{
+	font-size: 36px;
+}
+h2{
+	font-size: 24px;
+}
+h3{
+	font-size: 18px;
+}
+h4{
+	font-size:12px;
+}
+h5{
+	font-size:8px;
+}
+
+.neuralnetworkpic{
+    position: absolute;
+    top: 200px;
+}
+ hr {
+ 	width: 2270px;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 5px;
+}
