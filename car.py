@@ -7,51 +7,37 @@
 
 VERSION = "a0.1"
 
-try:
-    import sys
-    import random
-    import math
-    import os
-    import getopt
-    import pygame
-    from socket import *
-    from pygame.locals import *
-except ImportError err:
-    print("Could't Load Module",err," ")
+import pygame
 
+pygame.init()
+screen = pygame.display.set_mode((400, 300))
+done = False
+is_blue = True
+x = 30
+y = 30
 
+clock = pygame.time.Clock()
 
-
-def main():
-    # Initialise screen
-    pygame.init()
-    screen = pygame.display.set_mode((500, 500))
-    pygame.display.set_caption('Basic Pygame program')
-
-    # Fill background
-    background = pygame.Surface(screen.get_size())
-    background = background.convert()
-    background.fill((250, 250, 250))
-
-    # Display some text
-    font = pygame.font.Font(None, 36)
-    text = font.render("Hello There", 1, (10, 10, 10))
-    textpos = text.get_rect()
-    textpos.centerx = background.get_rect().centerx
-    background.blit(text, textpos)
-
-    # Blit everything to the screen
-    screen.blit(background, (0, 0))
-    pygame.display.flip()
-
-    # Event loop
-    while 1:
+while not done:
         for event in pygame.event.get():
-            if event.type == QUIT:
-                return
+                if event.type == pygame.QUIT:
+                        done = True
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        is_blue = not is_blue
+        
+        pressed = pygame.key.get_pressed()
+        if pressed[pygame.K_UP]: y -= 3
+        if pressed[pygame.K_DOWN]: y += 3
+        if pressed[pygame.K_LEFT]: x -= 3
+        if pressed[pygame.K_RIGHT]: x += 3
+       
+        screen.fill((0,0,0))
 
-        screen.blit(background, (0, 0))
+        if is_blue: color = (0, 128, 255)
+        else: color = (255, 100, 0)
+        pygame.draw.rect(screen, color, pygame.Rect(x, y, 60, 60))
+        
         pygame.display.flip()
+        clock.tick(60)
 
 
-if __name__ == '__main__': main()
