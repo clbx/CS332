@@ -50,3 +50,7 @@ h5{
 table, th {
     border: 1px solid black;
 }
+.table {
+    position: relative; /* Declared position allows for location changes */
+    top: -50px; /* Moves the image 2px closer to the top of the page */
+}
