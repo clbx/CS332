@@ -28,3 +28,25 @@ h5{
     border-style: inset;
     border-width: 5px;
 }
+* {
+    box-sizing: border-box;
+}
+.menu {
+    width: 40%;
+    float: left;
+}
+.main {
+    width: 60%;
+    float: left;
+}
+.menu1 {
+    width: 50%;
+    float: left;
+}
+.main1 {
+    width: 50%;
+    float: left;
+}
+table, th {
+    border: 1px solid black;
+}
